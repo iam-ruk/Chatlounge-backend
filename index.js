@@ -1,5 +1,6 @@
 var express=require('express');
 var socket =require('socket.io');
+const PORT=process.env.PORT||4009;
 var app=express();
 var cors=require('cors');
 var moongoose=require('mongoose');
@@ -10,8 +11,8 @@ app.use(cors())
 const dburl='mongodb+srv://iam_ruk:b9o7d4i0@chatcluster.t3z0l.mongodb.net/chatCluster-2?retryWrites=true&w=majority'
 moongoose.connect(dburl)
 .then((result)=>{
-    var server=app.listen(4009,()=>
-        console.log('listening at port 4009'));
+    var server=app.listen(PORT,()=>
+        console.log(`listening at port ${PORT}`));
     var io=socket(server);
     app.use(express.json())
     app.use('/',router);
