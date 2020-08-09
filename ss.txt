@@ -1,0 +1,20 @@
+class -> this points to the instance 
+function -> this points to the function itself
+
+in js, functions are first class objects ... so a function is an object too
+
+function f() {
+    return 
+}
+
+f = Function()
+
+
+class Function{
+    this.
+    def __call__(self):
+        return 
+}
+f = Function()
+
+f()

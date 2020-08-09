@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Client
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    </head>
+    <body>
+        <div id="chat-box">
+            <div id="chat-window">
+                <div id="feedback">
+                </div>
+                <div id="output">
+                </div>
+            </div>
+            <div id="chat-form">
+                <form id="form">
+                    <input type="text" id="user" placeholder="enter username">
+                    <input type="text" id="message" placeholder="enter message">
+                    <input id="button" type="submit" value="send">
+                </form>
+            </div>
+        </div>
+        <script src="/chat.js"></script>
+    </body>
+</html>
