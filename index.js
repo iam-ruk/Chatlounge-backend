@@ -46,7 +46,9 @@ moongoose.connect(dburl)
                 console.log('hjh');
                 socket.join(room_id);
             })
-            .catch((err)=>console.log('not found'))
+            .catch((err)=>{console.log('not found')
+                socket.emit('error','Room not found!')
+        })
     })      
         socket.on('message',(message)=>{
             const m=new Message({
