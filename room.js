@@ -8,8 +8,12 @@ const messageSchema=new Schema({
     sender:{
         type:String,
         required:true
+    },
+    datetime:{
+     type:String,
+     required:true
     }
-},{timestamps:true})
+})
 
 const roomSchema=new Schema(
     {

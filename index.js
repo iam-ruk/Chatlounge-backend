@@ -8,7 +8,7 @@ var {Room,Message}=require('./room');
 var router=require('./routes');
 app.use(cors())
 
-const dburl='mongodb+srv://iam_ruk:b9o7d4i0@chatcluster.t3z0l.mongodb.net/chatCluster-2?retryWrites=true&w=majority'
+const dburl='mongodb+srv://iam_ruk:b9o7d4i0@chatcluster.t3z0l.mongodb.net/chatCluster-3?retryWrites=true&w=majority'
 moongoose.connect(dburl)
 .then((result)=>{
     var server=app.listen(PORT,()=>
@@ -52,9 +52,14 @@ moongoose.connect(dburl)
         })
     })      
         socket.on('message',(message)=>{
+            d = new Date();
+            utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+            nd = new Date(utc + (3600000*+5.5));
+            var ist =  nd.toLocaleString();
             const m=new Message({
                 text:message,
-                sender:sender
+                sender:sender,
+                datetime:ist
             });
             io.to(id1).emit('message',m);
             Room.findById(id1).then((result)=>{
